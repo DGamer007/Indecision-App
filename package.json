@@ -4,8 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev-server": "webpack serve",
-    "build": "webpack"
+    "dev": "webpack serve --config webpack.dev.js",
+    "build:dev": "webpack --config webpack.dev.js",
+    "build:prod": "webpack --config webpack.prod.js",
+    "start": "node server/server.js",
+    "heroku-postbuild": "npm run build:prod"
   },
   "dependencies": {
     "@babel/core": "^7.14.3",
@@ -14,6 +17,8 @@
     "@babel/preset-react": "^7.13.13",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.6",
+    "express": "^4.17.1",
+    "mini-css-extract-plugin": "^1.6.0",
     "node-sass": "^6.0.0",
     "normalize.css": "^8.0.1",
     "react": "^17.0.2",
@@ -22,8 +27,10 @@
     "sass-loader": "^12.0.0",
     "style-loader": "^2.0.0",
     "webpack": "^5.38.1",
-    "webpack-cli": "^4.7.0",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-cli": "^4.7.0",    
+    "webpack-merge": "^5.8.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.2"
+  }
 }
